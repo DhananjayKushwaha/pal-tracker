@@ -5,4 +5,4 @@ applications:
   routes:
   - route: pal-tracker-review-zany-bongo.cfapps.io
   env:
-    WELCOME_MESSAGE: Hello from Review Cloud Foundry
+    WELCOME_MESSAGE: Hello from the review environment
