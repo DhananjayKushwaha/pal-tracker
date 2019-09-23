@@ -25,13 +25,13 @@ namespace PalTracker
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string port = Configuration.GetValue<string>("WELCOME_MESSAGE", "WELCOME_MESSAGE not configured.");
-            string memoryLimit = Configuration.GetValue<string>("WELCOME_MESSAGE", "WELCOME_MESSAGE not configured.");
-            string cfInstanceIndex = Configuration.GetValue<string>("WELCOME_MESSAGE", "WELCOME_MESSAGE not configured.");
-            string cfInstanceAddr = Configuration.GetValue<string>("WELCOME_MESSAGE", "WELCOME_MESSAGE not configured.");
+            string port = Configuration.GetValue<string>("port", "8080");
+            string memoryLimit = Configuration.GetValue<string>("memoryLimit", "512M");
+            string cfInstanceIndex = Configuration.GetValue<string>("cfInstanceIndex", "1");
+            string cfInstanceAddr = Configuration.GetValue<string>("cfInstanceAddr", "127.0.0.1");
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            //services.AddSingleton(sp => new WelcomeMessage(Configuration.GetValue<string>("WELCOME_MESSAGE", "WELCOME_MESSAGE not configured.")));
+            services.AddSingleton(sp => new WelcomeMessage(Configuration.GetValue<string>("WELCOME_MESSAGE", "WELCOME_MESSAGE not configured.")));
             services.AddSingleton(sp => new CloudFoundryInfo(port, memoryLimit, cfInstanceIndex, cfInstanceAddr));
         }
 
