@@ -6,7 +6,7 @@ namespace PalTrackerTests
 {
     public class OperationCounterTest
     {
-        private readonly OperationCounter<TimeEntry> _counter;
+        private readonly IOperationCounter<TimeEntry> _counter;
 
         public OperationCounterTest()
         {
